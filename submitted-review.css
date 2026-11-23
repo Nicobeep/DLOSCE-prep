@@ -1,0 +1,51 @@
+/* Persistent, read-only review of submitted DLOSCE-style questions.
+   Reuses the shared exam Patient Box, choice design, and source-image styles. */
+.exam-review-dashboard-header{display:flex;align-items:start;justify-content:space-between;gap:8px 12px;flex-wrap:wrap;margin-bottom:14px}
+.exam-review-dashboard-header h3{margin:0 0 4px;color:var(--ui-text)}
+.exam-review-dashboard-header p{margin:0;font-size:13px;color:var(--ui-muted)}
+.dashboard-heading button,.dashboard-storage button,.exam-review-dashboard-header button,.exam-archive-card button{min-height:42px;background:var(--ui-surface);border:1px solid var(--ui-control-border);color:var(--ui-accent);border-radius:var(--ui-control-radius);padding:8px 11px;font-size:13px;font-weight:680;cursor:pointer}
+.dashboard-heading button:hover,.dashboard-storage button:hover,.exam-review-dashboard-header button:hover,.exam-archive-card button:hover{background:var(--ui-accent-soft)}
+#submitted-session-list{display:grid;gap:9px}
+.exam-archive-card{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;border:1px solid var(--ui-border);border-radius:var(--ui-control-radius);background:var(--ui-subtle)}
+.exam-archive-card h4{margin:0 0 5px;font-size:15px;color:var(--ui-text)}
+.exam-archive-card p{margin:0;font-size:12px;color:var(--ui-muted)}
+.exam-archive-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.exam-archive-actions strong{font-size:14px;color:var(--ui-accent);font-variant-numeric:tabular-nums}
+.exam-archive-empty{margin:0;padding:16px;border:1px dashed var(--ui-control-border);border-radius:var(--ui-control-radius);background:var(--ui-subtle);color:var(--ui-muted);font-size:14px}
+#submitted-review{margin-top:18px}
+#submitted-review[hidden],#submitted-session-list[hidden]{display:none!important}
+.exam-review-frame{margin:0;max-width:none}
+.exam-review-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:18px 24px;background:var(--ui-surface);border-bottom:1px solid var(--ui-border)}
+.exam-review-head h3{margin:4px 0 3px;color:var(--ui-text);font-size:19px}
+.exam-review-head p{margin:0;font-size:13px;color:var(--ui-muted)}
+.exam-review-head button,.exam-review-frame>.exam-actions button{background:var(--ui-surface);border:1px solid var(--ui-control-border);color:var(--ui-text);border-radius:7px;padding:9px 14px;font-size:13px;font-weight:700;cursor:pointer}
+.exam-review-controls{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;background:var(--ui-accent-soft);padding:12px 17px}
+.exam-review-controls>span{font-size:13px;color:var(--ui-muted)}
+.exam-review-map{display:grid;grid-template-columns:repeat(auto-fill,minmax(35px,1fr));gap:6px;padding:13px 17px;border-bottom:1px solid var(--ui-border);max-height:180px;overflow-y:auto;background:var(--ui-surface)}
+.exam-review-map button{min-height:35px;border:1px solid var(--ui-control-border);background:var(--ui-surface);border-radius:6px;font-size:12px;cursor:pointer;color:var(--ui-text)}
+.exam-review-map button.is-wrong{background:#fff3ef;border-color:#edb7ab}
+.exam-review-map button.is-flagged{box-shadow:inset 0 -3px #d0a44a}
+.exam-review-map button.is-active{outline:2px solid var(--ui-accent);outline-offset:1px;font-weight:800}
+.exam-review-options{display:grid;gap:10px;margin:18px 0}
+.exam-review-option{display:flex;align-items:start;gap:11px;line-height:1.5;padding:12px 14px;border:1px solid var(--ui-border);border-radius:8px;background:var(--ui-surface);font-size:14px}
+.exam-review-option.is-correct{border-color:#96c6b0;background:#f0faf5}
+.exam-review-option.is-selected{box-shadow:inset 3px 0 var(--ui-accent)}
+.exam-review-option.is-wrong{background:#fff3f1;border-color:#e6aaa5}
+.exam-review-status{display:flex;flex-wrap:wrap;justify-content:end;gap:4px;margin-left:auto;min-width:95px;text-align:right}
+.exam-review-status span{font-size:10px;font-weight:800;border-radius:6px;padding:3px 6px}
+.exam-key-status{background:#d4eee0;color:#1d6341}
+.exam-selected-status{background:var(--ui-accent-soft);color:var(--ui-accent)}
+.exam-review-rx{overflow-x:auto;margin:15px 0}
+.exam-review-rx table{border-collapse:collapse;width:100%;min-width:560px;font-size:13px}
+.exam-review-rx th,.exam-review-rx td{padding:11px 13px;border:1px solid var(--ui-border);text-align:left;vertical-align:top}
+.exam-review-rx thead th{background:var(--ui-accent-soft);color:var(--ui-text)}
+.exam-review-rx tr.exam-review-correct{background:#f2faf4}
+.exam-review-rx tr.exam-review-wrong{background:#fff3f0}
+.exam-review-explanation{margin-top:20px;border-radius:9px;padding:16px 19px;background:var(--ui-accent-soft);border-left:4px solid var(--ui-accent)}
+.exam-review-explanation strong{font-size:16px;color:var(--ui-accent)}
+.exam-review-explanation h4{font-size:14px;color:var(--ui-text);margin:10px 0 5px}
+.exam-review-explanation p{margin:0;line-height:1.65}
+.exam-review-image{margin:12px 0 21px;padding:10px;border:1px solid var(--ui-border);border-radius:8px;background:var(--ui-subtle)}
+.exam-review-image img{max-width:100%;max-height:370px;object-fit:contain;display:block;margin:auto}
+.exam-review-image figcaption{font-size:11px;margin-top:10px;color:var(--ui-muted)}
+@media(max-width:760px){.exam-archive-card{flex-direction:column;align-items:start;padding:14px}.exam-review-head{padding:14px}.exam-review-option{flex-wrap:wrap}.exam-review-status{width:100%;justify-content:start;text-align:left}}

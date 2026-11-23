@@ -1,0 +1,140 @@
+/* DLOSCE-style interactive test workspace: independent educational UI.
+ * Works beside existing platform and site-ui styles without changing their modules. */
+.exam-shell{--exam-font-adjust:0px;max-width:var(--ui-width);margin:12px auto 30px;border:1px solid var(--ui-border);border-radius:var(--ui-radius);background:var(--ui-bg);color:var(--ui-text);overflow:clip;text-align:left;font-family:inherit}
+.exam-shell *{box-sizing:border-box}
+.exam-shell button,.exam-shell select{font-family:inherit}
+.exam-shell button:focus-visible,.exam-shell a:focus-visible,.exam-shell input:focus-visible,.exam-shell select:focus-visible{outline:3px solid var(--ui-focus);outline-offset:2px}
+.exam-toolbar{display:flex;gap:var(--ui-gap);justify-content:space-between;align-items:center;background:var(--ui-surface);border-bottom:1px solid var(--ui-border);padding:14px 20px;flex-wrap:wrap}
+.exam-toolbar-name{display:grid;gap:1px;min-width:210px}
+.exam-eyebrow{font-size:12px!important;font-weight:650;color:var(--ui-muted)!important}
+.exam-toolbar-name strong{font-size:18px;color:var(--ui-text)}
+.exam-toolbar-name small{font-size:13px;color:var(--ui-muted)}
+.exam-toolbar-meta{display:flex;gap:19px;align-items:center;flex-wrap:wrap;margin-left:auto}
+.exam-toolbar-meta>div{display:grid;gap:1px;text-align:right}
+.exam-toolbar-meta small{font-size:12px;color:var(--ui-muted)}
+.exam-toolbar-meta strong{font-size:16px;font-variant-numeric:tabular-nums;color:var(--ui-text)}
+.exam-toolbar-meta .exam-time strong{color:var(--ui-accent)}
+.exam-toolbar-exit{background:transparent!important;color:var(--ui-text)!important;border:1px solid var(--ui-border)!important;padding:8px 12px!important;font-size:13px!important;border-radius:var(--ui-control-radius)!important}
+.exam-progress-track{height:4px;background:var(--ui-accent-soft);overflow:hidden}
+.exam-progress-track span{display:block;background:var(--ui-accent);height:100%;transition:width .15s ease}
+.exam-subbar{display:flex;justify-content:space-between;align-items:center;gap:8px 15px;padding:9px 20px;border-bottom:1px solid var(--ui-border);font-size:13px;color:var(--ui-muted);background:var(--ui-surface);flex-wrap:wrap}
+.exam-subbar-actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.exam-subbar button,.exam-subbar a{border:0;background:none;padding:6px 9px;color:var(--ui-accent);text-decoration:none;font-size:13px;font-weight:650;border-radius:var(--ui-control-radius);cursor:pointer}
+.exam-subbar button:hover,.exam-subbar a:hover{background:var(--ui-accent-soft)}
+.exam-layout{display:grid;grid-template-columns:minmax(220px,32%) minmax(0,1fr);align-items:start;gap:var(--ui-gap);padding:var(--ui-gap);font-size:calc(15px + var(--exam-font-adjust))}
+.exam-patient{border:1px solid var(--ui-patient-border);border-radius:var(--ui-radius);background:var(--ui-surface);overflow:clip;align-self:start;font-size:.94em;line-height:1.45;min-width:0}
+.exam-patient-row+.exam-patient-row{border-top:1px solid var(--ui-patient-border)}
+.exam-patient-row h4{margin:0;padding:6px 11px;background:var(--ui-patient-heading);color:var(--ui-text);font-weight:700;font-size:.94em}
+.exam-patient-row p{min-height:28px;margin:0!important;padding:8px 11px;color:var(--ui-text);white-space:pre-line;overflow-wrap:anywhere}
+.exam-endo-table{padding:0 11px 11px}
+.exam-endo-table h5{margin:5px 0 8px;font-size:13px}
+.exam-table-wrap{overflow:auto}
+.exam-endo-table table{width:100%;font-size:11px;border-collapse:collapse}
+.exam-endo-table th,.exam-endo-table td{padding:6px 3px;border:1px solid var(--ui-border);text-align:center;white-space:nowrap}
+.exam-endo-table th{background:var(--ui-accent-soft)}
+.exam-question-panel{min-width:0;padding:clamp(12px,2.4vw,24px);border:1px solid var(--ui-border);border-radius:var(--ui-radius);background:var(--ui-surface)}
+.exam-question-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 15px;margin-bottom:13px;font-size:13px;font-weight:680;color:var(--ui-muted)}
+.exam-flag{background:var(--ui-surface)!important;border:1px solid var(--ui-border)!important;color:var(--ui-text)!important;padding:7px 12px!important;font-size:12px!important;border-radius:8px!important}
+.exam-flag.is-flagged{background:#fff4d9!important;color:#835713!important;border-color:#e9c67a!important}
+.exam-instruction{color:var(--ui-muted);margin-bottom:8px;font-size:.92em;line-height:1.5}
+.exam-question-panel h2{font-size:calc(clamp(19px,2.2vw,25px) + var(--exam-font-adjust));line-height:1.35;font-weight:710;margin:0 0 17px!important;color:var(--ui-text)!important;border:0!important;padding:0!important}
+.exam-choices{margin:0;border:0;padding:0;display:grid;gap:8px;min-width:0}
+.exam-choice{display:flex;align-items:flex-start;gap:9px;min-height:44px;margin:0;padding:11px;border:1px solid var(--ui-border);border-radius:var(--ui-control-radius);background:var(--ui-bg);cursor:pointer;min-width:0;font-weight:400;line-height:1.5;color:var(--ui-text);transition:background .12s,border-color .12s}
+.exam-choice:hover{border-color:var(--ui-accent)}
+.exam-choice.selected,.exam-choice:has(input:checked){background:var(--ui-accent-soft);border-color:var(--ui-accent);box-shadow:0 0 0 1px var(--ui-accent)}
+.exam-choice input{flex:none;width:18px;height:18px;margin-top:2px;accent-color:var(--ui-accent)}
+.exam-choice-letter{flex:none;font-weight:700;color:var(--ui-muted)}
+.exam-choice-text{min-width:0;overflow-wrap:anywhere}
+.exam-rx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:17px}
+.exam-rx-field{display:grid;gap:7px;font-weight:700;font-size:.9em;color:var(--ui-text)}
+.exam-rx-field select{background:var(--ui-surface);border:1px solid var(--ui-control-border);min-width:0;width:100%;min-height:43px;padding:8px 10px;border-radius:6px;font-size:1em;color:var(--ui-text)}
+.exam-format-note{font-size:11px!important;color:var(--ui-muted);margin-top:22px!important;line-height:1.5}
+.exam-image{border:1px solid var(--ui-border);border-radius:8px;background:var(--ui-subtle);margin:0 0 22px;padding:10px;max-width:740px}
+.exam-image-wrap{height:min(40vw,370px);min-height:190px;background:#16232b;border-radius:6px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.exam-image img{width:100%;height:100%;object-fit:contain}
+.exam-image figcaption{font-size:11px;color:var(--ui-muted);line-height:1.5;padding:8px 0}
+.exam-image a{color:var(--ui-accent)}
+.exam-text-button{background:none!important;border:0!important;color:var(--ui-accent)!important;font-size:12px!important;text-decoration:underline;cursor:pointer;padding:5px!important}
+.exam-feedback{padding:15px 18px;margin-top:20px;border:1px solid #c7e0d5;border-radius:9px;background:#edf8f2;color:#18583c}
+.exam-feedback-partial{background:#fff7e8;color:#614515;border-color:#e9d8ae}
+.exam-feedback p{margin:8px 0!important;font-size:.91em}
+.exam-actions{display:flex;gap:var(--ui-gap);align-items:center;flex-wrap:wrap;max-width:none;margin:0;padding:12px 20px;background:var(--ui-surface);border-top:1px solid var(--ui-border)}
+.exam-actions button,.exam-interlude-buttons button,.exam-end-buttons button{min-height:44px;font-size:13px!important;font-weight:680!important;padding:9px 14px!important;border:1px solid var(--ui-border)!important;border-radius:var(--ui-control-radius)!important;background:var(--ui-surface)!important;color:var(--ui-text)!important;cursor:pointer}
+.exam-actions .exam-primary,.exam-interlude-buttons .exam-primary,.exam-end-buttons .exam-primary{background:var(--ui-accent)!important;color:var(--ui-on-accent)!important;border-color:var(--ui-accent)!important}
+.exam-actions button:disabled{opacity:.4;cursor:not-allowed}
+.exam-actions-fill{flex:1}
+.exam-map-panel{padding:15px 20px;border-bottom:1px solid var(--ui-border);background:var(--ui-surface)}
+.exam-map-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.exam-map-top strong{font-size:14px}
+.exam-map-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.exam-map-filters button{border:1px solid var(--ui-border);background:var(--ui-surface);border-radius:5px;padding:6px 10px;font-size:12px;cursor:pointer;color:var(--ui-text)}
+.exam-map-filters button[aria-pressed="true"]{background:var(--ui-accent);color:var(--ui-on-accent);border-color:var(--ui-accent)}
+.exam-map-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(40px,1fr));gap:7px;max-height:160px;overflow:auto}
+.exam-map-grid button{padding:8px 0!important;min-height:38px;border:1px solid var(--ui-control-border)!important;border-radius:7px!important;background:var(--ui-surface)!important;font-size:12px!important;color:var(--ui-text)!important;cursor:pointer}
+.exam-map-grid button.answered{background:var(--ui-accent-soft)!important}
+.exam-map-grid button.flagged{border-color:#d19a35!important;box-shadow:inset 0 -3px #d19a35}
+.exam-map-grid button.active{outline:2px solid var(--ui-accent)!important;outline-offset:0!important;font-weight:900}
+.exam-map-legend,.exam-empty{font-size:11px;color:var(--ui-muted);margin:10px 0 0}
+.exam-interlude,.exam-results{max-width:1060px;margin:0 auto;padding:34px 32px 40px}
+.exam-interlude h2,.exam-results h2{margin:8px 0 15px;color:var(--ui-text);font-size:27px}
+.exam-interlude p,.exam-results p{line-height:1.65}
+.exam-alert{padding:12px 15px!important;background:#fff8e9!important;color:#654915!important;border-left:3px solid #d6a75a!important;border-radius:3px;margin:16px 0!important;font-size:13px!important}
+.exam-review-stats,.exam-results-modules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:23px 0}
+.exam-review-stats div,.exam-results-modules div{border:1px solid var(--ui-border);padding:15px;border-radius:9px;background:var(--ui-subtle);display:flex;flex-direction:column;gap:3px}
+.exam-review-stats strong{font-size:25px;color:var(--ui-accent)}
+.exam-review-stats span,.exam-results-modules small{font-size:12px;color:var(--ui-muted)}
+.exam-interlude-buttons,.exam-end-buttons{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}
+.exam-small{font-size:12px!important;color:var(--ui-muted)!important}
+.exam-result-number{font-size:42px;font-weight:850;line-height:1.1!important;color:var(--ui-accent);margin:12px 0!important}
+.exam-result-number span{font-size:16px;color:var(--ui-muted);font-weight:600}
+.exam-results-modules{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.exam-results-modules strong{font-size:22px;color:var(--ui-accent)}
+.exam-results-modules span{font-size:13px;font-weight:700}
+.exam-result-list{display:grid;gap:10px}
+.exam-result-item{border:1px solid var(--ui-border);background:var(--ui-surface);border-radius:8px;padding:0!important;overflow:hidden}
+.exam-result-item summary{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px;cursor:pointer;color:var(--ui-text);font-size:13px;font-weight:700}
+.exam-result-item summary:hover{background:var(--ui-subtle)}
+.exam-result-item p{padding:0 15px;font-size:13px;line-height:1.6}
+.exam-result-item[open]{padding-bottom:12px!important}
+.exam-lightbox{position:fixed;inset:0;z-index:9999;background:rgba(5,17,28,.87);display:grid;place-items:center;padding:18px}
+.exam-lightbox-card{width:min(1180px,98vw);max-height:95vh;display:grid;grid-template-rows:auto minmax(0,1fr) auto;background:var(--ui-surface);border-radius:8px;overflow:hidden}
+.exam-lightbox-header,.exam-lightbox-controls{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 17px;flex-wrap:wrap}
+.exam-lightbox-header{border-bottom:1px solid var(--ui-border)}
+.exam-lightbox-header button{background:var(--ui-accent);color:white;border:0;border-radius:5px;padding:7px 13px;cursor:pointer}
+.exam-lightbox-stage{min-height:150px;height:min(68vh,730px);background:#101b23;overflow:auto;display:grid;place-items:center}
+.exam-lightbox-stage img{max-width:100%;max-height:100%;object-fit:contain;transform-origin:center;transition:transform .1s ease}
+.exam-lightbox-controls label{display:flex;align-items:center;gap:12px;font-size:12px}
+.exam-lightbox-controls input{width:170px}
+.exam-lightbox-controls a{color:var(--ui-accent)}
+.exam-modal-open{overflow:hidden}
+#quiz:not([hidden]),#mock-quiz:not([hidden]){width:100%}
+@media(max-width:760px){
+  .exam-toolbar{padding:12px 14px}
+  .exam-toolbar-meta{margin:0;width:100%;justify-content:space-between;gap:10px}
+  .exam-layout,.exam-rx-grid{grid-template-columns:minmax(0,1fr)}
+  .exam-subbar button,.exam-subbar a{min-height:44px;display:inline-flex;align-items:center}
+  .exam-interlude,.exam-results{padding:25px 17px}
+  .exam-actions{padding:12px 13px}
+  .exam-actions button{flex:1}
+  .exam-actions-fill{display:none}
+  .exam-image-wrap{height:250px}
+}
+@media(max-width:420px){.exam-toolbar-meta>div{flex:0 0 auto}.exam-toolbar-meta small{font-size:10px}.exam-toolbar-meta strong{font-size:13px}.exam-subbar{padding:9px 13px}.exam-map-grid{grid-template-columns:repeat(7,minmax(0,1fr))}.exam-review-stats{gap:6px}.exam-review-stats div{padding:10px}.exam-review-stats strong{font-size:20px}}
+@media(prefers-reduced-motion:reduce){.exam-progress-track span,.exam-choice,.exam-lightbox-stage img{transition:none}}
+
+/* Focused exam mode hides ordinary site chrome until Exit is selected. */
+body.exam-session-active{background:var(--ui-bg)}
+body.exam-session-active .site-header,body.exam-session-active>footer{display:none!important}
+body.exam-session-active #app{width:100%!important;max-width:1500px!important;padding:12px 18px!important;margin:0 auto}
+body.exam-session-active #official-adex-practice,body.exam-session-active .exam-intro-note{display:none!important}
+body.exam-session-active .exam-shell{margin:6px auto 24px}
+.exam-intro-note{margin:12px 0 18px;padding:12px 15px;background:var(--ui-accent-soft);border-radius:var(--ui-control-radius);font-size:13px;line-height:1.65;color:var(--ui-text)}
+.exam-intro-note a{color:var(--ui-accent);font-weight:700}
+.exam-full-option{margin-top:18px;padding:17px;background:var(--ui-bg);border:1px solid var(--ui-border);border-radius:var(--ui-radius)}
+.exam-full-option h3{margin:0 0 6px;color:var(--ui-text)}
+.exam-full-option p{font-size:13px;line-height:1.6;margin:6px 0 14px}
+@media(max-width:650px){body.exam-session-active #app{padding:7px!important}}
+
+/* Keep longer histories and findings readable beside the exam question. */
+@media(min-width:761px){.exam-layout>.exam-patient{max-height:min(84vh,920px);overflow-y:auto;overscroll-behavior:contain;position:sticky;top:12px;scrollbar-width:thin}}
+.exam-rx-layout>.exam-patient,.exam-review-frame .exam-patient{top:var(--ui-header-offset)}
